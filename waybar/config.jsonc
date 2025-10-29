@@ -1,0 +1,248 @@
+{
+  "layer": "top",
+  "margin": "0",
+  "modules-center": ["clock", "custom/notification"],
+  "modules-left": [
+    "custom/app-launcher",
+    "hyprland/workspaces",
+    "custom/new-workspace"
+  ],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "backlight",
+    "custom/audio-device",
+    "group/audio",
+    "group/hardware",
+    "network",
+    "battery",
+    "custom/power"
+  ],
+  "custom/new-workspace": {
+    "format": "",
+    "on-click": "hyprctl dispatch workspace empty"
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "~/.config/rofi/power.sh"
+  },
+  "custom/app-launcher": {
+    "format": "",
+    "on-click": "rofi -theme ~/.config/rofi/launcher.rasi -show",
+    "tooltip-format": "App launcher"
+  },
+  "hyprland/language": {
+    "format": "󰌌 {short}"
+  },
+  "hyprland/workspaces": {
+    "format": "{windows} <sup>{icon}</sup>",
+    "on-click": "activate",
+    "all-outputs": true,
+    "sort-by-number": true,
+    "show-special": true,
+    "format-window-separator": " ",
+    "format-icons": {
+      "special": "󱪇"
+    },
+    "window-rewrite-default": "",
+    "window-rewrite": {
+      "org.pulseaudio.pavucontrol": "",
+      "org.gnome.Console": "",
+      "class<steam>": "󰓓",
+      "class<Brave-browser>": "",
+      "class<Code>": "󰨞",
+      "class<alacritty>": "",
+      "class<Google-chrome>": "",
+      "class<insomnia>": "",
+      "class<vesktop>": "",
+      "class<libreoffice-calc>": "󰈛",
+      "class<libreoffice-writer>": "󰈙",
+      "org.gnome.Nautilus": "",
+      "class<.*soapui.*>": "󰗀",
+      "class<gimp>": "",
+      "class<filezilla>": "",
+      "title<Deluge>": "󰖌",
+      "title<.* - Microsoft Azure - .*>": "",
+      "title<.*Azure DevOps.*>": "",
+      "class<postman>": "",
+      "class<guitarix>": "󰋄",
+      "class<org.rncbc.qpwgraph>": "󱡫",
+      "class<vlc>": "󰕼",
+      "class<obsidian>": "󰽉",
+      "class<MongoDB Compass>": "",
+      "class<dev.zed.Zed>": "󰰶",
+      "class<Cursor>": "󰆧"
+    }
+  },
+  "hyprland/window": {
+    "max-length": 20,
+    "separate-outputs": true,
+    "format": "{class} - {title}",
+    "rewrite": {
+      "Brave-browser(.*)": "󰇧$1",
+      "kitty(?!.*nvim)(.*)": "$1",
+      "kitty.*nvim(.*)": "$1",
+      "alacritty(?!.*nvim)(.*)": "$1",
+      "alacritty.*nvim(.*)": "$1",
+      "Code(.*)": "󰨞$1",
+      "Google-chrome(.*)": "$1",
+      "libreoffice-calc(.*)": "󰈛$1",
+      "libreoffice-writer(.*)": "󰈙$1",
+      "steam(.*)": "󰓓$1",
+      "org.pulseaudio.pavucontrol.*": " Pavucontrol",
+      "vesktop(.*)": "$1",
+      ".*soapui.*": "󰗀 SoapUI"
+    }
+  },
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "format-icons": {
+      "full": ["󰂄"],
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "interval": 1,
+    "states": {
+      "warning": 30,
+      "critical": 20
+    }
+  },
+  "clock": {
+    "format": " {:%a %b %d %H:%M:%S}",
+    "format-alt": " {:%A, %B %d, %Y %H:%M:%S}",
+    "tooltip-format": "<span><small>{calendar}</small></span>",
+    "interval": 1,
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+	"months": "<span color='#ffead3'><b>{}</b></span>",
+	"days": "<span color='#ecc6d9'><b>{}</b></span>",
+	"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+	"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+	"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  },
+  "bluetooth": {
+    "on-click": "blueman-manager",
+    "format-on": "󰂯",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "format-connected": "󰂱",
+    "format-connected-battery": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {percentage}%"
+  },
+  "cpu": {
+    "interval": 10,
+    "format": " {usage}%",
+    "max-length": 10
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon}",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-ethernet": "󰛳",
+    "format-disconnected": "󰲛",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+  "custom/gpu": {
+    "exec": "~/.config/waybar/gpu.sh",
+    "exec-if": "exit 0",
+    "format": " {}%",
+    "tooltip-format": "GPU usage: {}%"
+  },
+  "group/hardware": {
+    "orientation": "horizontal",
+    "drawer": {},
+    "modules": ["cpu", "memory", "custom/gpu"]
+  },
+  "group/audio": {
+    "orientation": "horizontal",
+    "drawer": {},
+    "modules": ["pulseaudio"]
+  },
+  "group/adjustments": {
+    "orientation": "horizontal",
+    "drawer": {},
+    "modules": ["pulseaudio", "backlight"]
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/audio-device": {
+    "exec": "~/.config/waybar/current-audio-device.sh",
+    "on-click": "~/.config/waybar/toggle-audio-device.sh",
+    "tooltip": false,
+    "interval": 1
+  }
+}

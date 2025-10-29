@@ -1,0 +1,144 @@
+@define-color text #c0caf5;
+@define-color text-hover #9ece6a;
+@define-color bar-bg rgba(26, 27, 38, 0.2);
+@define-color modules-bg rgba(36, 40, 59, 0.5);
+@define-color active-workspace-bg #414868;
+@define-color full-battery #73daca;
+@define-color low-battery #e0af68;
+@define-color critical-battery #f7768e;
+@define-color charging-battery #9ece6a;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "MesloLGS Nerd Font Propo";
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 0;
+  color: @text;
+}
+
+window#waybar {
+  background: @bar-bg;
+}
+
+label.module {
+  padding: 0 10px;
+}
+
+#tray {
+  padding: 0 10px;
+  border-radius: 0px;
+}
+
+label.module:hover {
+  color: @text-hover;
+}
+
+.modules-right,
+.modules-center,
+.modules-left {
+  margin: 7px 10px;
+  padding: 0 10px;
+  border-radius: 20px;
+  background: @modules-bg;
+}
+
+#workspaces button {
+  color: @text;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  margin: 0 2px;
+}
+
+#workspaces button:hover {
+  background: @active-workspace-bg;
+  border: 2px solid @text-hover;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  transition: inherit;
+}
+
+#workspaces button:hover * {
+  color: @text-hover;
+}
+
+#workspaces button.active {
+  background: @active-workspace-bg;
+  border: 2px solid @text-hover;
+}
+
+#workspaces button.active * {
+  color: @text-hover;
+}
+
+#workspaces button.visible {
+  background: @active-workspace-bg;
+}
+
+#custom-new-workspace {
+  color: @text;
+  border-radius: 20px;
+  padding: 0 15px;
+}
+
+#custom-new-workspace:hover {
+  background: @active-workspace-bg;
+}
+
+tooltip {
+  border-radius: 0px;
+}
+
+@keyframes blink {
+  to {
+    background: #1f2335;
+  }
+}
+
+#battery.full {
+  color: @full-battery;
+}
+
+#battery.charging {
+  color: @charging-battery;
+}
+
+#battery.warning:not(.charging) {
+  color: @warning-battery;
+}
+
+#battery.critical:not(.charging) {
+  background: @critical-battery;
+  color: white;
+  animation-name: blink;
+  animation-duration: 800ms;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  border-radius: 50%;
+  opacity: 0;
+  background-image: none;
+  background: white;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+  min-height: 10px;
+  min-width: 150px;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0px 0px 3px 0px @bar-bg;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 15px;
+  background: #1f2335;
+}
