@@ -21,5 +21,6 @@ tesseract-data-eng
 tesseract-data-osd
 tesseract-data-por
 waybar
+wezterm
 wl-clipboard
 ```
