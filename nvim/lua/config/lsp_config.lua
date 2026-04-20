@@ -6,7 +6,8 @@ local ensure_installed = {
   "html",
   "cssls",
   "eslint",
-  "jedi_language_server"
+  "gopls",
+  "pyright"
 }
 
 require("mason-lspconfig").setup({
