@@ -1,6 +1,6 @@
 @define-color text #c0caf5;
 @define-color text-hover #9ece6a;
-@define-color bar-bg rgba(26, 27, 38, 0.2);
+@define-color bar-bg rgba(26, 27, 38, 0.3);
 @define-color modules-bg rgba(36, 40, 59, 0.5);
 @define-color active-workspace-bg #414868;
 @define-color full-battery #73daca;
