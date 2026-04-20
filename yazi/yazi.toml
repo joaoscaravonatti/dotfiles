@@ -1,0 +1,14 @@
+[opener]
+video = [
+  { run = 'vlc "$@"', orphan = true }
+]
+pdf = [
+  { run = 'brave "$@"', orphan = true }
+]
+
+[open]
+rules = [
+  { mime = "video/*", use = "video" },
+  { mime = "application/pdf", use = "pdf" }
+]
+
