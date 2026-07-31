@@ -20,7 +20,7 @@
   ],
   "custom/new-workspace": {
     "format": "",
-    "on-click": "hyprctl dispatch workspace empty"
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\" })'"
   },
   "custom/power": {
     "format": "⏻",
@@ -46,6 +46,7 @@
     },
     "window-rewrite-default": "",
     "window-rewrite": {
+      "class<cs2>": "󰘧",
       "org.pulseaudio.pavucontrol": "",
       "org.gnome.Console": "",
       "class<steam>": "󰓓",
@@ -71,7 +72,8 @@
       "class<obsidian>": "󰽉",
       "class<MongoDB Compass>": "",
       "class<dev.zed.Zed>": "󰰶",
-      "class<Cursor>": "󰆧"
+      "class<Cursor>": "󰆧",
+      "class<org.qbittorrent.qBittorrent>": "󰄠"
     }
   },
   "hyprland/window": {
